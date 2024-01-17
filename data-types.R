@@ -1,9 +1,9 @@
 # data types
 
 # numeric means float
-# integer means int
+# integer means int (the L declares it as integer)
 s <- 2
-p <- 2
+p <- 2L
 
 b <- 4/3
 int <- as.integer(b)
