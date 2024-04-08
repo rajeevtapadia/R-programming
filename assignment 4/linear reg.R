@@ -1,6 +1,6 @@
 # using lm function for logistic regression
 
-path <- "C:\\Users\\rajeevt\\Documents\\Data-Science\\Data-Science-Lab\\assignment 4\\Toy_sales.csv"
+path <- "assignment 4\\Toy_sales.csv"
 
 dataset <- read.csv(path)
 sales <- dataset$Unitsales

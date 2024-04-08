@@ -85,5 +85,7 @@ sigma <- sqrt(no_sample * p * (1-p))
 
 z <- (59 - mu)/sigma
 
+
+
 1 - pnorm(z)
 

@@ -7,7 +7,7 @@ sd = 17
 
 tValue = (mean - 130) / (sd / sqrt(n))
 
-criticalValue = qnorm(0.05)
+criticalValue = qnorm(0.025)
 
 # using abs for two sided tail
 if(abs(tValue) < abs(criticalValue)) {
