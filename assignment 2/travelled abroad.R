@@ -44,31 +44,6 @@ dbinom(8, size = 10, prob = p)
 dbinom(9, size = 10, prob = p)
 
 # Probability that exactly 10 persons have traveled abroad
-# Probability that exactly 2 persons have traveled abroad
-dbinom(2, size = 10, prob = p)
-
-# Probability that exactly 3 persons have traveled abroad
-dbinom(3, size = 10, prob = p)
-
-# Probability that exactly 4 persons have traveled abroad
-dbinom(4, size = 10, prob = p)
-
-# Probability that exactly 5 persons have traveled abroad
-dbinom(5, size = 10, prob = p)
-
-# Probability that exactly 6 persons have traveled abroad
-dbinom(6, size = 10, prob = p)
-
-# Probability that exactly 7 persons have traveled abroad
-dbinom(7, size = 10, prob = p)
-
-# Probability that exactly 8 persons have traveled abroad
-dbinom(8, size = 10, prob = p)
-
-# Probability that exactly 9 persons have traveled abroad
-dbinom(9, size = 10, prob = p)
-
-# Probability that exactly 10 persons have traveled abroad
 dbinom(10, size = 10, prob = p)
 
 barplot(dbinom(0:10, size = 10, prob = p))
