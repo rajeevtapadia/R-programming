@@ -13,3 +13,8 @@ plot(price, sales)
   # note: ~ is vs operator
 model <- lm(formula = sales ~ price, data = dataset)
 abline(model, col = "red")
+summary(model)$r.squared
+summary(model)$sigma
+predicted <- predict(model, newdata = dataset)
+sales - predicted
+
