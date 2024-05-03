@@ -29,59 +29,12 @@ trainData <- data[trainIndex, ]
 testData <- data[-trainIndex, ]
 
 # Logistic Regression Model
-log_model <- glm(popularity ~ explicit+danceability+energy+loudness+speechiness+
-                   acousticness+instrumentalness+liveness+valence+tempo, 
+log_model <- glm(popularity ~ danceability+energy+loudness
+                 +speechiness+liveness+valence+tempo, 
                  data = trainData, 
                  family = "binomial")
-custom_glm <- function(formula, data, family = gaussian, weights, ...) {
-  if (inherits(family, "family")) {
-    if (family$family == "binomial") {
-      # Extract the response variable for binomial family
-      y <- model.response(model.frame(formula, data))
-      if (!is.factor(y)) {
-        stop("In binomial models, response variable must be a factor")
-      }
-      y <- ifelse(y == levels(y)[1], 0, 1)
-    } else {
-      # Extract the response variable for other families
-      y <- model.extract(terms(formula), data)
-    }
-  } else {
-    stop("Family argument must be a family object")
-  }
-  
-  # Extract the design matrix
-  X <- model.matrix(formula, data)
-  
-  # Fit the model using hyperbolic tangent function
-  fit <- .Call(stats:::C_glmfit, X, y, weights, aic = FALSE, 
-               family = family, ...)
-  
-  # Create a list with class 'glm' containing all the necessary components
-  glm_obj <- list(
-    coefficients = coef(fit),
-    residuals = resid(fit),
-    fitted.values = fitted(fit),
-    family = fit$family,
-    weights = weights,
-    terms = fit$terms,
-    call = match.call(),
-    formula = formula,
-    data = fit$model
-  )
-  
-  # Classify the list as 'glm' object
-  class(glm_obj) <- "glm"
-  
-  # Return the 'glm' object
-  return(glm_obj)
-}
 
 trainData$popularity_factor <- as.factor(ifelse(trainData$popularity > 0.6, 1, 0))
-
-log_model <- custom_glm(popularity ~ danceability, 
-                        data = trainData, 
-                        family = binomial())
 
 # Model Summary
 summary(log_model)

@@ -4,6 +4,7 @@ tanh <- function(x, a = 1) {
 }
 
 # Define the hypothesis function
+# here theta is optimized coefficient
 hypothesis <- function(theta, X) {
   tanh(X %*% theta)
 }
@@ -19,8 +20,10 @@ cost_function <- function(theta, X, y) {
 gradient <- function(theta, X, y) {
   m <- length(y)
   h <- hypothesis(theta, X)
+#
   1/m * t(X) %*% (h - y)
 }
+learning_rate *gradient(theta_optimized, X, y)
 
 # Implement gradient descent
 gradient_descent <- function(X, y, theta, learning_rate, iterations) {
